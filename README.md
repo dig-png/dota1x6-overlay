@@ -21,12 +21,34 @@
 
 ## Установка и запуск
 
+Готовые сборки — в [Releases](https://github.com/dig-png/dota1x6-overlay/releases):
+установщик (`Setup`) или портативный `.exe` без установки.
+
+Из исходников:
+
 ```powershell
 npm install
 npm start
 ```
 
 Либо двойной клик по `start-overlay.vbs` (без окна консоли).
+
+## Сборка релиза
+
+```powershell
+npm run dist            # установщик + портативный exe в dist/
+npm run dist:portable   # только портативный exe
+```
+
+Релиз публикуется автоматически: поставь тег и запушь —
+
+```powershell
+git tag v1.0.0
+git push origin v1.0.0
+```
+
+GitHub Actions соберёт `Dota1x6Overlay-Setup-<версия>.exe` и
+`Dota1x6Overlay-Portable-<версия>.exe` и приложит их к релизу.
 
 ## Использование
 

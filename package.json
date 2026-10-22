@@ -3,12 +3,68 @@
   "version": "1.0.0",
   "private": true,
   "description": "Оверлей со статистикой игроков Dota 1x6",
+  "author": "dig-png",
+  "license": "MIT",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "test:api": "node scripts/test-api.js"
+    "test:api": "node scripts/test-api.js",
+    "icon": "electron scripts/make-icon.js",
+    "dist": "electron-builder --win",
+    "dist:portable": "electron-builder --win portable"
   },
   "devDependencies": {
-    "electron": "^38.0.0"
+    "electron": "^38.0.0",
+    "electron-builder": "^26.15.3"
+  },
+  "build": {
+    "appId": "com.digpng.dota1x6overlay",
+    "productName": "Dota 1x6 Overlay",
+    "copyright": "Copyright © 2026 dig-png",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "lib/**/*",
+      "renderer/**/*",
+      "package.json"
+    ],
+    "asar": true,
+    "win": {
+      "icon": "build/icon.png",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        },
+        {
+          "target": "portable",
+          "arch": ["x64"]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Dota 1x6 Overlay",
+      "artifactName": "Dota1x6Overlay-Setup-${version}.${ext}"
+    },
+    "portable": {
+      "artifactName": "Dota1x6Overlay-Portable-${version}.${ext}"
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "dig-png",
+        "repo": "dota1x6-overlay",
+        "releaseType": "release"
+      }
+    ]
   }
 }

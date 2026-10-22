@@ -1,9 +1,11 @@
 'use strict';
 
 // Служебная проверка: node scripts/eval.js "js expression"
+const PORT = process.env.CDP_PORT || 9222;
+
 async function main() {
   const expr = process.argv.slice(2).join(' ') || '1+1';
-  const pages = await (await fetch('http://127.0.0.1:9222/json/list')).json();
+  const pages = await (await fetch(`http://127.0.0.1:${PORT}/json/list`)).json();
   const page = pages.find((p) => p.type === 'page');
   if (!page) throw new Error('no page');
 
