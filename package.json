@@ -1,0 +1,14 @@
+{
+  "name": "dota1x6-overlay",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Оверлей со статистикой игроков Dota 1x6",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test:api": "node scripts/test-api.js"
+  },
+  "devDependencies": {
+    "electron": "^38.0.0"
+  }
+}

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src https: data:; style-src 'self' 'unsafe-inline'" />
+    <title>Dota 1x6 Overlay</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header id="titlebar">
+        <div class="brand">DOTA <b>1x6</b> <span>overlay</span></div>
+        <div class="win-buttons">
+          <button id="btn-passthrough" class="icon-btn" title="Клик-сквозь (F9)">◎</button>
+          <button id="btn-hide" class="icon-btn" title="Скрыть (F8)">—</button>
+          <button id="btn-close" class="icon-btn close" title="Закрыть">✕</button>
+        </div>
+      </header>
+
+      <section id="controls">
+        <textarea
+          id="ids"
+          spellcheck="false"
+          placeholder="SteamID64 / account_id / ссылка на профиль Steam&#10;По одному в строке или через запятую"
+        ></textarea>
+        <div class="row">
+          <button id="btn-load" class="primary">Загрузить</button>
+          <span class="hint">Ctrl+Enter</span>
+        </div>
+      </section>
+
+      <div id="status" class="status"></div>
+
+      <main id="cards"></main>
+
+      <footer id="footer">
+        <span><b>F8</b> скрыть</span>
+        <span><b>F9</b> сквозь</span>
+        <span><b>Ctrl +/−</b> масштаб</span>
+      </footer>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
